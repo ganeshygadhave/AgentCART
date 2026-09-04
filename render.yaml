@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: agentcart-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python reset_and_seed.py || python seed_demo_data.py || echo "seed skipped"
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./agentcart.db
+      - key: APP_ENV
+        value: production
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GROQ_FALLBACK_MODEL
+        value: llama-3.1-8b-instant
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: https://agentcart.vercel.app,http://localhost:5173
