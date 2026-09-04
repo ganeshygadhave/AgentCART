@@ -1,0 +1,161 @@
+/* AgentCART — Cart Sidebar (Receipt Column) */
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: calc(var(--z-drawer) - 1);
+  animation: overlay-in 0.2s ease;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--receipt-width);
+  max-width: 100vw;
+  background: var(--color-paper);
+  border-left: var(--border-hairline);
+  z-index: var(--z-drawer);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cart-sidebar--open {
+  transform: translateX(0);
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.cart-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+}
+
+.cart-sidebar__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cart-sidebar__close {
+  padding: var(--space-1) var(--space-3);
+}
+
+/* ─── Empty State ───────────────────────────────────────────── */
+.cart-sidebar__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  color: var(--color-ink-ghost);
+  padding: var(--space-8);
+}
+
+/* ─── Items List ────────────────────────────────────────────── */
+.cart-sidebar__items {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2) 0;
+}
+
+/* ─── Cart Line Item ────────────────────────────────────────── */
+.cart-line-item {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: var(--border-hairline);
+  position: relative;
+}
+
+.cart-line-item__img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border: var(--border-hairline);
+  flex-shrink: 0;
+}
+
+.cart-line-item__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.cart-line-item__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.cart-line-item__remove {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--color-ink-ghost);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: transparent;
+  border: none;
+}
+
+.cart-line-item__remove:hover {
+  color: var(--color-flag);
+}
+
+/* ─── Footer / Totals ───────────────────────────────────────── */
+.cart-sidebar__footer {
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cart-totals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cart-totals__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-totals__row--total {
+  padding-top: var(--space-3);
+}
+
+.cart-totals__row--total .truth-md {
+  font-size: 18px;
+  color: var(--color-signal);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cart-totals__row--total .truth-md svg {
+  width: 16px;
+  height: 16px;
+}

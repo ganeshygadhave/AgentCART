@@ -1,0 +1,189 @@
+.address-selector {
+  width: 100%;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  padding: 16px;
+  font-family: var(--font-ui);
+}
+
+.address-selector-header {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.address-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-line);
+  margin-bottom: 16px;
+}
+
+.address-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-line);
+  cursor: pointer;
+  gap: 12px;
+}
+
+.address-row:hover {
+  background-color: rgba(217, 211, 199, 0.1);
+}
+
+.address-label-badge {
+  background-color: var(--color-signal);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.address-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.address-phone {
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.address-street {
+  font-size: 13px;
+}
+
+.address-city {
+  font-size: 13px;
+  color: #666;
+}
+
+.address-radio {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-radio.active::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-ink);
+  border-radius: 50%;
+}
+
+.btn-add-address {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.btn-confirm-address {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--color-signal);
+  color: var(--color-paper);
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-confirm-address:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.add-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--color-line);
+  padding: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--color-ink);
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.btn-save {
+  flex: 1;
+  padding: 10px;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,409 @@
+/* AgentCART — Header */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-paper);
+  border-bottom: var(--border-hairline);
+}
+
+.header__inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* ─── Wordmark ─────────────────────────────────────────────── */
+.header__wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.header__wordmark-agent {
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: var(--font-humanist);
+}
+
+.header__wordmark-cart {
+  font-family: var(--font-truth);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-ink);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Navigation ────────────────────────────────────────────── */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex: 1;
+  padding-left: var(--space-8);
+}
+
+.header__nav-link {
+  font-family: var(--font-humanist);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--color-ink-ghost);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.header__nav-link:hover {
+  color: var(--color-ink);
+}
+
+.header__nav-link--active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+/* ─── Actions ───────────────────────────────────────────────── */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ─── Cart Button ───────────────────────────────────────────── */
+.header__cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: var(--border-hairline);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  font-size: 15px;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header__cart-btn:hover {
+  background: var(--color-paper-dim);
+  border-color: var(--color-ink);
+}
+
+.header__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: var(--color-signal);
+  color: var(--color-paper);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-truth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  border: 2px solid var(--color-paper);
+  pointer-events: none;
+  animation: badge-pop 0.2s ease;
+}
+
+@keyframes badge-pop {
+  from { transform: scale(0.6); }
+  to   { transform: scale(1); }
+}
+
+/* Guest auth */
+.header__auth-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ─── User Button ───────────────────────────────────────────── */
+.header__user-menu {
+  position: relative;
+}
+
+.header__user-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-3);
+  border: var(--border-hairline);
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-humanist);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.header__user-btn:hover {
+  background: var(--color-paper-dim);
+  border-color: var(--color-ink);
+}
+
+.header__user-avatar {
+  width: 26px;
+  height: 26px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header__user-name {
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__chevron-icon {
+  font-size: 11px;
+  color: var(--color-ink-soft);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.header__chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+/* ─── Dropdown ──────────────────────────────────────────────── */
+.header__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 220px;
+  background: var(--color-paper);
+  border: var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(27, 36, 48, 0.1);
+  animation: dropdown-appear 0.12s ease;
+}
+
+@keyframes dropdown-appear {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header__dropdown-info {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-4);
+  gap: 2px;
+}
+
+.header__dropdown-info--link {
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.header__dropdown-info--link:hover {
+  background: var(--color-paper-dim);
+}
+
+.header__dropdown-info .truth-sm {
+  color: var(--color-ink);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__dropdown-divider {
+  height: 1px;
+  background: var(--color-line);
+}
+
+.header__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-humanist);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.header__dropdown-item:hover {
+  background: var(--color-paper-dim);
+}
+
+.header__dropdown-item i {
+  color: var(--color-ink-soft);
+  width: 14px;
+  text-align: center;
+}
+
+.header__dropdown-item--danger {
+  color: var(--color-flag);
+}
+
+.header__dropdown-item--danger i {
+  color: var(--color-flag);
+}
+
+/* ─── Hamburger ─────────────────────────────────────────────── */
+.header__hamburger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  font-size: 15px;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header__hamburger:hover {
+  background: var(--color-paper-dim);
+}
+
+/* ─── Mobile Menu Drawer ────────────────────────────────────── */
+.header__mobile-menu {
+  display: none;
+  flex-direction: column;
+  border-top: var(--border-hairline);
+  background: var(--color-paper);
+  animation: mobile-menu-in 0.18s ease;
+}
+
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header__mobile-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+}
+
+.header__mobile-user--link {
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.header__mobile-user--link:hover {
+  background: var(--color-paper-dim);
+}
+
+.header__mobile-user-icon {
+  font-size: 28px;
+  color: var(--color-ink-soft);
+}
+
+.header__mobile-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-humanist);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-bottom: var(--border-hairline);
+  transition: background var(--transition-fast);
+}
+
+.header__mobile-link:last-child {
+  border-bottom: none;
+}
+
+.header__mobile-link:hover {
+  background: var(--color-paper-dim);
+}
+
+.header__mobile-link i {
+  color: var(--color-ink-soft);
+  width: 18px;
+  text-align: center;
+}
+
+.header__mobile-link--danger {
+  color: var(--color-flag);
+}
+
+.header__mobile-link--danger i {
+  color: var(--color-flag);
+}
+
+.header__mobile-link--signal {
+  color: var(--color-signal);
+  font-weight: 600;
+}
+
+.header__mobile-link--signal i {
+  color: var(--color-signal);
+}
+
+/* ─── Mobile Breakpoints ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .header__hamburger {
+    display: flex;
+  }
+
+  .header__mobile-menu {
+    display: flex;
+  }
+
+  .header__auth-actions {
+    display: none;
+  }
+
+  .header__user-menu {
+    display: none;
+  }
+
+  .header__nav {
+    display: none;
+  }
+}

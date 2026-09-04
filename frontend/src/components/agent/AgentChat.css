@@ -1,0 +1,575 @@
+/* AgentCART — AI Chat Panel */
+
+.agent-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: calc(var(--z-drawer) - 1);
+}
+
+.agent-chat {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  max-height: 600px;
+  background: var(--color-paper);
+  border: var(--border-hairline);
+  z-index: var(--z-drawer);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+  transform-origin: bottom right;
+}
+
+.agent-chat--open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.agent-chat__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+}
+
+.agent-chat__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.agent-chat__status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-signal);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.agent-chat__close {
+  flex-shrink: 0;
+}
+
+/* ─── Context Banner ─────────────────────────────────────────── */
+.agent-chat__context {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-signal-light);
+  border-bottom: var(--border-hairline);
+}
+
+/* ─── Messages ───────────────────────────────────────────────── */
+.agent-chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Welcome */
+.agent-chat__welcome {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.agent-chat__suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agent-chat__suggestion {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: var(--border-hairline);
+  font-family: var(--font-humanist);
+  font-size: 12px;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  border-radius: var(--radius);
+}
+
+.agent-chat__suggestion:hover {
+  background: var(--color-paper-dim);
+  border-color: var(--color-ink-soft);
+}
+
+/* Message Rows */
+.agent-message {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.agent-message--user {
+  flex-direction: row-reverse;
+}
+
+.agent-message__avatar {
+  width: 28px;
+  height: 28px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-truth);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agent-message__bubble {
+  max-width: 80%;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-hairline);
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agent-message--user .agent-message__bubble {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.agent-message--user .agent-message__bubble .body-sm {
+  color: var(--color-paper);
+}
+
+.agent-message--error .agent-message__bubble {
+  border-color: var(--color-flag);
+  background: var(--color-flag-light);
+}
+
+.agent-message__formatted {
+  color: inherit;
+  font-family: var(--font-humanist);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.agent-message__formatted p {
+  margin: 0;
+}
+
+.agent-message__formatted p + p,
+.agent-message__formatted ul + p {
+  margin-top: var(--space-3);
+}
+
+.agent-message__formatted ul {
+  margin: 0;
+  padding-left: var(--space-5);
+}
+
+.agent-message__formatted li + li {
+  margin-top: var(--space-2);
+}
+
+.agent-message__formatted strong {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.agent-message--user .agent-message__formatted strong {
+  color: var(--color-paper);
+}
+
+.agent-product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agent-product-card {
+  display: flex;
+  gap: var(--space-3);
+  border-top: var(--border-dashed);
+  padding-top: var(--space-3);
+}
+
+.agent-product-card__image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.agent-product-card__details {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.agent-product-card__details strong {
+  font-size: var(--text-body-sm);
+  line-height: 1.35;
+}
+
+.agent-product-card__name-link:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.agent-payment-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-left: 40px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-signal);
+  background: var(--color-signal-light);
+}
+
+.agent-payment-summary__heading,
+.agent-payment-summary__item,
+.agent-payment-summary__total {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.agent-payment-summary__heading {
+  align-items: baseline;
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-dashed);
+}
+
+.agent-payment-summary__item {
+  font-size: var(--text-body-sm);
+  color: var(--color-ink-soft);
+}
+
+.agent-payment-summary__item .btn {
+  margin-left: auto;
+}
+
+.agent-add-on-panel .agent-product-card {
+  border-top: var(--border-dashed);
+}
+
+.agent-payment-summary__total {
+  padding-top: var(--space-3);
+  border-top: var(--border-ink);
+  font-weight: 600;
+}
+
+.agent-payment-summary__error {
+  margin: 0;
+  color: var(--color-flag-mid);
+  font-size: var(--text-body-sm);
+}
+
+.agent-payment-summary--success {
+  border-color: var(--color-signal);
+  color: var(--color-signal-mid);
+}
+
+.agent-payment-summary__success {
+  margin: 0;
+  color: var(--color-signal-mid);
+  font-weight: 600;
+}
+
+/* Typing indicator */
+.agent-message__bubble--typing {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+}
+
+.agent-message__bubble--typing span {
+  width: 6px;
+  height: 6px;
+  background: var(--color-ink-ghost);
+  border-radius: 50%;
+  animation: typing-bounce 1.2s infinite;
+}
+
+.agent-message__bubble--typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.agent-message__bubble--typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%            { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Cart Updated Badge */
+.agent-message__cart-update {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-top: var(--space-1);
+  border-top: var(--border-dashed);
+}
+
+/* ─── Input Row ──────────────────────────────────────────────── */
+.agent-chat__input-row {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  align-items: flex-end;
+}
+
+.agent-chat__textarea {
+  flex: 1;
+  resize: none;
+  min-height: 38px;
+  max-height: 120px;
+  padding: var(--space-2) var(--space-3);
+  font-size: 13px;
+  overflow-y: auto;
+}
+
+.agent-chat__send {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Address Step ────────────────────────────────────────────── */
+.agent-address-step {
+  border-color: var(--color-ink-soft) !important;
+  background: var(--color-paper-dim) !important;
+}
+
+.agent-address-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agent-address-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--space-3) var(--space-3);
+  background: var(--color-paper);
+  border: var(--border-hairline);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.agent-address-card:hover {
+  border-color: var(--color-ink-soft);
+  background: var(--color-white);
+}
+
+.agent-address-card--selected {
+  border-color: var(--color-signal) !important;
+  background: var(--color-signal-light) !important;
+}
+
+.agent-address-card__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--color-ink);
+}
+
+.agent-address-card__label i {
+  color: var(--color-signal);
+  font-size: 11px;
+}
+
+.agent-new-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.agent-form-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.agent-form-row .input-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.agent-new-address-form .input-field {
+  font-size: 12px;
+  height: 34px;
+  padding: 0 var(--space-3);
+}
+
+/* ─── Tool Call Audit Log ────────────────────────────────────── */
+.agent-tool-log {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+  border-bottom: var(--border-dashed);
+}
+
+.agent-tool-badge {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-tool-badge__pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-truth, monospace);
+  font-size: 10px;
+  color: #4f46e5;
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.agent-tool-badge__pill:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+.agent-tool-badge__icon {
+  font-size: 9px;
+  color: #6366f1;
+  flex-shrink: 0;
+}
+
+.agent-tool-badge__name {
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.agent-tool-badge__args {
+  color: #818cf8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.agent-tool-badge__chevron {
+  font-size: 7px;
+  flex-shrink: 0;
+  color: #a5b4fc;
+  margin-left: 2px;
+}
+
+/* Expanded detail panel */
+.agent-tool-badge__detail {
+  margin-top: 4px;
+  margin-left: 8px;
+  padding: 8px 10px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: fadeSlideIn 0.15s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.agent-tool-badge__detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.agent-tool-badge__detail-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a5b4fc;
+  min-width: 36px;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+
+.agent-tool-badge__detail-value {
+  font-family: var(--font-truth, monospace);
+  font-size: 10px;
+  color: #4f46e5;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  word-break: break-all;
+  flex: 1;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .agent-tool-badge__pill {
+    background: rgba(139, 92, 246, 0.12);
+    border-color: rgba(139, 92, 246, 0.3);
+    color: #a78bfa;
+  }
+  .agent-tool-badge__pill:hover {
+    background: rgba(139, 92, 246, 0.2);
+  }
+  .agent-tool-badge__icon,
+  .agent-tool-badge__name { color: #a78bfa; }
+  .agent-tool-badge__args  { color: #c4b5fd; }
+  .agent-tool-badge__chevron { color: #7c3aed; }
+  .agent-tool-badge__detail {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+  .agent-tool-badge__detail-label { color: #7c3aed; }
+  .agent-tool-badge__detail-value {
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.1);
+  }
+}

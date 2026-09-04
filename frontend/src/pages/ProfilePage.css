@@ -1,0 +1,433 @@
+/* ProfilePage.css – Premium Redesign */
+
+.profile-page {
+  padding: 40px 24px 80px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Hero banner ─────────────────────────────── */
+.profile-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(170, 59, 255, 0.18);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.profile-hero__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, #6a0dad 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(170, 59, 255, 0.3);
+}
+
+.profile-hero__info {
+  text-align: left;
+}
+
+.profile-hero__name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+.profile-hero__email {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.profile-hero__badge {
+  margin-left: auto;
+  background: rgba(170, 59, 255, 0.25);
+  border: 1px solid rgba(170, 59, 255, 0.5);
+  color: #c084fc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Section cards ───────────────────────────── */
+.profile-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.profile-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-card__title i {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.profile-card__body {
+  padding: 0;
+}
+
+/* ── Detail rows ─────────────────────────────── */
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row:hover {
+  background: var(--social-bg);
+}
+
+.detail-row__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail-row__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.detail-row__label {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.detail-row__value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-h);
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  text-align: right;
+  margin-left: 12px;
+}
+
+.detail-row__value--muted {
+  color: var(--text);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ── Address form ────────────────────────────── */
+.address-form-wrapper {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.address-form-wrapper h3 {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.three-cols {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1.5px solid var(--input-border, #cccccc);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-family: inherit;
+  font-size: 15px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3.5px var(--accent-bg), inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ── Error message ───────────────────────────── */
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* ── Address cards grid ──────────────────────── */
+.addresses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.address-item {
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.address-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.address-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.address-item__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.address-item__default-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.address-item__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 3px;
+}
+
+.address-item__phone {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.address-item__address {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+/* ── Empty address state ─────────────────────── */
+.empty-address-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  color: var(--text);
+  gap: 10px;
+  text-align: center;
+}
+
+.empty-address-state i {
+  font-size: 36px;
+  color: var(--border);
+  margin-bottom: 4px;
+}
+
+.empty-address-state p {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+  .profile-page {
+    padding: 20px 16px 60px;
+  }
+
+  .profile-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 22px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  .profile-hero__badge {
+    margin-left: 0;
+  }
+
+  .profile-hero__name {
+    font-size: 20px;
+  }
+
+  .profile-hero__email {
+    font-size: 12px;
+    word-break: break-all;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .three-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .addresses-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .profile-card__header {
+    padding: 16px 18px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 18px;
+  }
+
+  .detail-row__value {
+    font-size: 13px;
+    text-align: left;
+    margin-left: 48px;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 860px) {
+  .profile-page {
+    padding: 28px 20px 60px;
+  }
+}

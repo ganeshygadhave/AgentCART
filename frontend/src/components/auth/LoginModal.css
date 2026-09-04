@@ -1,0 +1,179 @@
+.login-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(27, 36, 48, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.login-modal {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  padding: 24px;
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.login-modal-title {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 8px 0;
+}
+
+.login-modal-subtitle {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--color-ink);
+  opacity: 0.8;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.login-modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-line);
+  margin-bottom: 20px;
+}
+
+.login-modal-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 0;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.login-modal-tab.active {
+  opacity: 1;
+  border-bottom-color: var(--color-ink);
+}
+
+.login-modal-error {
+  background-color: #FDECEA;
+  color: #D32F2F;
+  padding: 8px 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  border: 1px solid #D32F2F;
+}
+
+.login-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-modal-field label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.login-modal-field input {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  outline: none;
+}
+
+.login-modal-field input:focus {
+  border-color: var(--color-ink);
+}
+
+.phone-input-group {
+  display: flex;
+  border: 1px solid var(--color-line);
+}
+
+.phone-input-group:focus-within {
+  border-color: var(--color-ink);
+}
+
+.phone-prefix {
+  padding: 10px;
+  background-color: rgba(217, 211, 199, 0.3);
+  border-right: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+}
+
+.phone-input-group input {
+  border: none;
+  flex: 1;
+}
+
+.phone-input-group input:focus {
+  border: none;
+}
+
+.login-modal-btn {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  width: 100%;
+}
+
+.login-modal-btn.primary {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.login-modal-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.otp-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+}

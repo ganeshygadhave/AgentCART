@@ -1,0 +1,131 @@
+.order-stepper-container {
+  padding: 16px 0;
+  font-family: var(--font-ui);
+}
+
+.order-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.stepper-indicator-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.stepper-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  color: var(--color-line);
+  font-size: 12px;
+  z-index: 2;
+}
+
+.stepper-icon.active {
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+}
+
+.stepper-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: -50%;
+  height: 2px;
+  background-color: var(--color-line);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.stepper-line.active {
+  background-color: var(--color-signal);
+}
+
+.stepper-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-align: center;
+}
+
+.stepper-item:not(.completed) .stepper-label {
+  opacity: 0.5;
+}
+
+.tracking-info {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.tracking-link {
+  font-family: var(--font-mono);
+  color: var(--color-signal);
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tracking-link:hover {
+  text-decoration: underline;
+}
+
+.tracking-carrier {
+  font-size: 12px;
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .order-stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .stepper-item {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .stepper-indicator-container {
+    width: auto;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .stepper-line {
+    top: 24px;
+    left: 50%;
+    right: auto;
+    bottom: -16px;
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .stepper-label {
+    text-align: left;
+  }
+}

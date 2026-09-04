@@ -1,0 +1,122 @@
+/* ============================================================
+   AgentCART — Design Token System
+   "Storefront + Ledger" Aesthetic
+   Font: Inter (Humanist) + JetBrains Mono (Truth/Ledger)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* ─── Color Tokens ─────────────────────────────────────────── */
+  --color-paper:  #FAF8F4;   /* App background — warm stationery */
+  --color-ink:    #1B2430;   /* Primary text & structure — deep ink */
+  --color-signal: #3F6E5B;   /* CTA, verified, confirmed — deep green */
+  --color-flag:   #C4622D;   /* Warning, failure, alert — burnt orange */
+  --color-line:   #D9D3C7;   /* Hairline borders & dividers */
+
+  /* ─── Extended Palette ────────────────────────────────────── */
+  --color-paper-dim:       #F0EDE7;
+  --color-ink-soft:        #3E4755;
+  --color-ink-ghost:       #828B9A;
+  --color-signal-light:    #EBF4F0;
+  --color-signal-mid:      #2D5244;
+  --color-flag-light:      #FDF0EA;
+  --color-flag-mid:        #9B4C22;
+  --color-white:           #FFFFFF;
+  --color-overlay:         rgba(27, 36, 48, 0.55);
+
+  /* ─── Material Design Extended Tokens ─────────────────────── */
+  --color-primary:           #050e1a;
+  --color-primary-container: #1b2430;
+  --color-surface:           #fff9ee;
+  --color-surface-container: #f4ede1;
+  --color-on-surface:        #1e1b14;
+  --color-outline:           #75777c;
+  --color-outline-variant:   #c5c6cc;
+  --color-tertiary:          #3F6E5B;
+  --color-tertiary-container:#002a1d;
+
+  /* ─── Typography Tokens ───────────────────────────────────── */
+  --font-humanist: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-truth:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ─── Type Scale ──────────────────────────────────────────── */
+  --text-headline-lg:      32px;
+  --text-headline-lg-lh:   40px;
+  --text-headline-lg-ls:   -0.02em;
+  --text-headline-lg-fw:   600;
+
+  --text-headline-md:      20px;
+  --text-headline-md-lh:   28px;
+  --text-headline-md-fw:   600;
+
+  --text-body-lg:          18px;
+  --text-body-lg-lh:       28px;
+
+  --text-body-md:          16px;
+  --text-body-md-lh:       24px;
+
+  --text-body-sm:          14px;
+  --text-body-sm-lh:       20px;
+
+  --text-truth-lg:         20px;
+  --text-truth-lg-lh:      24px;
+  --text-truth-lg-ls:      -0.03em;
+  --text-truth-lg-fw:      500;
+
+  --text-truth-md:         16px;
+  --text-truth-md-lh:      20px;
+  --text-truth-md-fw:      500;
+
+  --text-truth-sm:         12px;
+  --text-truth-sm-lh:      16px;
+  --text-truth-sm-fw:      500;
+
+  --text-label-caps:       11px;
+  --text-label-caps-lh:    16px;
+  --text-label-caps-fw:    700;
+  --text-label-caps-ls:    0.1em;
+
+  /* ─── Spacing System (4px grid) ──────────────────────────── */
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-24:   96px;
+
+  --gutter:             24px;
+  --margin-mobile:      16px;
+  --margin-desktop:     48px;
+  --receipt-width:      480px;
+
+  /* ─── Shape — ZERO RADIUS (Ledger Aesthetic) ─────────────── */
+  --radius: 0px;
+
+  /* ─── Border — Hairline System ────────────────────────────── */
+  --border-hairline:  1px solid var(--color-line);
+  --border-ink:       1px solid var(--color-ink);
+  --border-signal:    1px solid var(--color-signal);
+  --border-flag:      1px solid var(--color-flag);
+  --border-dashed:    1px dashed var(--color-line);
+
+  /* ─── Zero Shadow Policy ──────────────────────────────────── */
+  --shadow: none;
+
+  /* ─── Transitions ─────────────────────────────────────────── */
+  --transition-fast:    120ms ease;
+  --transition-base:    200ms ease;
+  --transition-slow:    350ms ease;
+
+  /* ─── Z-index Scale ───────────────────────────────────────── */
+  --z-base:      0;
+  --z-sticky:    100;
+  --z-drawer:    200;
+  --z-modal:     300;
+  --z-toast:     400;
+}
