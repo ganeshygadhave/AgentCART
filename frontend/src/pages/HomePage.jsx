@@ -692,6 +692,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Test Credentials Banner ─── */}
+      <section className="home-test-creds">
+        <div className="container">
+          <div className="test-creds__inner">
+            <div className="test-creds__label">
+              <i className="fa-solid fa-flask" />
+              <span>Demo Credentials — Click to auto-fill</span>
+            </div>
+            <div className="test-creds__cards">
+              <button
+                className="test-creds__card"
+                onClick={() => navigate('/?modal=login')}
+              >
+                <div className="test-creds__role">
+                  <i className="fa-solid fa-user" /> Customer
+                </div>
+                <div className="test-creds__detail">customer@test.com</div>
+                <div className="test-creds__detail test-creds__pwd">Pass@1234</div>
+              </button>
+              <button
+                className="test-creds__card test-creds__card--merchant"
+                onClick={() => navigate('/?modal=merchant')}
+              >
+                <div className="test-creds__role">
+                  <i className="fa-solid fa-store" /> Merchant
+                </div>
+                <div className="test-creds__detail">merchant@test.com</div>
+                <div className="test-creds__detail test-creds__pwd">Pass@1234</div>
+              </button>
+            </div>
+            <div className="test-creds__hint">
+              <i className="fa-solid fa-credit-card" style={{ marginRight: 6 }} />
+              Razorpay test card: <strong>4111 1111 1111 1111</strong> · Any expiry · Any CVV
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Feature Pillars ─── */}
       <section className="home-pillars">
         <div className="container">

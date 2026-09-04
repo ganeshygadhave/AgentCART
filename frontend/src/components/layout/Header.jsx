@@ -119,15 +119,17 @@ export default function Header() {
             </>
           )}
 
-          {/* ─── Mobile Hamburger ─── */}
-          <button
-            className="header__hamburger"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} />
-          </button>
+          {/* ─── Mobile Hamburger (only when logged in) ─── */}
+          {isAuthenticated && (
+            <button
+              className="header__hamburger"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} />
+            </button>
+          )}
         </div>
       </div>
 

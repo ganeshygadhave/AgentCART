@@ -4,7 +4,7 @@
  */
 import axios from 'axios'
 
-const BASE_URL = ''  // Vite proxy forwards /api/* to http://localhost:8001
+const BASE_URL = import.meta.env.VITE_API_URL || ''  // Uses Render URL in prod, Vite proxy in dev
 
 const apiClient = axios.create({
   baseURL: BASE_URL,

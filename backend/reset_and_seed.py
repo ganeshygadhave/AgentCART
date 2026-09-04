@@ -147,6 +147,31 @@ MERCHANTS = [
         ]
     },
     {
+        "email": "merchant@test.com",
+        "name": "Demo Merchant",
+        "phone": "+919000000002",
+        "store": {
+            "name": "AgentCART Demo Store",
+            "slug": "demo-store",
+            "description": "Demo store for testing AgentCART features end-to-end.",
+            "category": "Electronics",
+        },
+        "agent": {
+            "greeting": "Welcome to the AgentCART Demo Store! Ask me anything about our products.",
+            "persona": "Helpful sales assistant",
+            "context": "We sell a curated mix of electronics, books, and fitness gear for demonstration purposes.",
+            "max_discount_pct": 10.0,
+            "min_cart_paise": 50000,
+        },
+        "products": [
+            {"sku":"DEMO-001","name":"Noise-Cancelling Headphones","desc":"Wireless over-ear headphones, 30h battery, ANC","cat":"Electronics","brand":"SoundMax","price":299900,"orig":399900,"stock":50,"img":"https://images.unsplash.com/photo-1505740420928-5e560c06d30e","tags":["headphones","wireless","anc"],"rating":4.5,"reviews":234},
+            {"sku":"DEMO-002","name":"Smart Watch Series 5","desc":"Fitness tracker with GPS, heart rate, SpO2, 7-day battery","cat":"Electronics","brand":"FitWatch","price":199900,"orig":249900,"stock":40,"img":"https://images.unsplash.com/photo-1523275335684-37898b6baf30","tags":["smartwatch","fitness","gps"],"rating":4.4,"reviews":567},
+            {"sku":"DEMO-003","name":"Mechanical Keyboard TKL","desc":"Tenkeyless mechanical keyboard, blue switches, RGB backlight","cat":"Electronics","brand":"TypePro","price":149900,"orig":199900,"stock":30,"img":"https://images.unsplash.com/photo-1541140532154-b024d705b90a","tags":["keyboard","mechanical","rgb"],"rating":4.6,"reviews":312},
+            {"sku":"DEMO-004","name":"Atomic Habits — James Clear","desc":"#1 NYT bestseller on habits and continuous improvement","cat":"Books","brand":"Penguin","price":49900,"orig":69900,"stock":100,"img":"https://images.unsplash.com/photo-1544947950-fa07a98d237f","tags":["self-help","habits","book"],"rating":4.9,"reviews":8923},
+            {"sku":"DEMO-005","name":"Yoga Mat Premium 6mm","desc":"Non-slip TPE yoga mat, 183x61cm, with carry strap","cat":"Sports & Fitness","brand":"YogaZen","price":149900,"orig":199900,"stock":60,"img":"https://images.unsplash.com/photo-1601925228150-f8e6de5f63a0","tags":["yoga","mat","fitness"],"rating":4.6,"reviews":891},
+        ]
+    },
+    {
         "email": "suresh.menon@bookworld.in",
         "name": "Suresh Menon",
         "phone": "+915432109876",
@@ -184,6 +209,9 @@ MERCHANTS = [
 # CUSTOMERS
 # ─────────────────────────────────────────────────────────────────────────────
 CUSTOMERS = [
+    # ── Test / Demo accounts ─────────────────────────────────────────────────
+    {"email":"customer@test.com",       "name":"Test Customer",  "phone":"+919000000001","city":"Mumbai",    "state":"Maharashtra","pincode":"400001","street":"1 Demo Lane, Andheri"},
+    # ── Seeded users ─────────────────────────────────────────────────────────
     {"email":"amit.kumar@gmail.com",     "name":"Amit Kumar",     "phone":"+919123456789","city":"Mumbai",    "state":"Maharashtra","pincode":"400001","street":"14 Marine Drive, Colaba"},
     {"email":"sneha.patel@gmail.com",    "name":"Sneha Patel",    "phone":"+919234567890","city":"Ahmedabad", "state":"Gujarat",     "pincode":"380001","street":"22 CG Road, Navrangpura"},
     {"email":"rohit.singh@gmail.com",    "name":"Rohit Singh",    "phone":"+919345678901","city":"Delhi",     "state":"Delhi",       "pincode":"110001","street":"45 Connaught Place"},

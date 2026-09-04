@@ -19,8 +19,8 @@
 
 | Role | Email | Password |
 |---|---|---|
-| Customer | `demo@agentcart.dev` | `demo1234` |
-| Merchant | `merchant@agentcart.dev` | `merchant1234` |
+| Customer | `customer@test.com` | `Pass@1234` |
+| Merchant | `merchant@test.com` | `Pass@1234` |
 
 ### Test Payment Card (Razorpay Test Mode)
 ```
