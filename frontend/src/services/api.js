@@ -4,7 +4,9 @@
  */
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_URL || ''  // Uses Render URL in prod, Vite proxy in dev
+// In production (Vercel), use VITE_API_URL or fall back to the Render backend URL directly
+const BASE_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? 'https://agentcart-1-4kxs.onrender.com' : '')
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
