@@ -1,6 +1,20 @@
 """
 AgentCART – FastAPI Application Entry Point
 """
+# ── Python 3.14 compatibility patch ──────────────────────────────────────────
+# pkg_resources was removed from Python 3.14 stdlib. The razorpay SDK uses it
+# only to read its own version. This stub satisfies the import silently.
+import sys as _sys
+if "pkg_resources" not in _sys.modules:
+    import types as _types
+    _pkg = _types.ModuleType("pkg_resources")
+    _pkg.require = lambda *a, **kw: None
+    _pkg.get_distribution = lambda *a, **kw: _types.SimpleNamespace(version="0.0.0")
+    _pkg.DistributionNotFound = Exception
+    _pkg.VersionConflict = Exception
+    _sys.modules["pkg_resources"] = _pkg
+# ─────────────────────────────────────────────────────────────────────────────
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI

@@ -3,7 +3,7 @@ services:
     name: agentcart-backend
     runtime: python
     rootDir: backend
-    buildCommand: pip install -r requirements.txt && python reset_and_seed.py || python seed_demo_data.py || echo "seed skipped"
+    buildCommand: pip install setuptools && pip install -r requirements.txt && python reset_and_seed.py || python seed_demo_data.py || echo "seed skipped"
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     plan: free
     pythonVersion: "3.11.0"
