@@ -5,6 +5,9 @@
 **Track:** AI Growth & Agentic Commerce  
 **Stack:** React · FastAPI · Gemini Flash · Groq 70B · Razorpay Test Mode · SQLite/PostgreSQL
 
+🌐 **Live Demo:** [Frontend (Vercel)](https://agentcart.vercel.app) · [Backend API](https://agentcart-1-4kxs.onrender.com/docs)  
+📂 **Repo:** [github.com/ganeshygadhave/AgentCART](https://github.com/ganeshygadhave/AgentCART)
+
 ---
 
 ## What It Solves
