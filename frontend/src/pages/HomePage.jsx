@@ -5,10 +5,10 @@ import { merchantApi } from '../services/api'
 import './HomePage.css'
 
 /* ─── Auth Modal ────────────────────────────────────────────── */
-function AuthModal({ mode, onClose, onSuccess }) {
+function AuthModal({ mode, onClose, onSuccess, prefillEmail = '', prefillPassword = '' }) {
   const [tab, setTab] = useState('email') // 'email' | 'phone'
   const [authMode, setAuthMode] = useState(mode)
-  const [form, setForm] = useState({ email: '', name: '', password: '', phone: '', otp: '' })
+  const [form, setForm] = useState({ email: prefillEmail, name: '', password: prefillPassword, phone: '', otp: '' })
   const [otpSent, setOtpSent] = useState(false)
   const [otpHint, setOtpHint] = useState('')
   const [error, setError] = useState('')
@@ -239,12 +239,12 @@ const STORE_CATEGORIES = [
   'Books', 'Beauty & Health', 'Groceries & Food', 'Toys & Games', 'Automotive', 'Other'
 ]
 
-function MerchantModal({ onClose }) {
+function MerchantModal({ onClose, prefillEmail = '', prefillPassword = '' }) {
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
-  const [accountMode, setAccountMode] = useState('register') // 'register' | 'login'
+  const [accountMode, setAccountMode] = useState(prefillEmail ? 'login' : 'register') // 'register' | 'login'
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', password: '',
+    name: '', email: prefillEmail, phone: '', password: prefillPassword,
     storeName: '', slug: '', domain: '', description: '', category: ''
   })
   const [loading, setLoading] = useState(false)
@@ -569,9 +569,15 @@ export default function HomePage() {
   const { isAuthenticated, initialized } = useAuthStore()
   const navigate = useNavigate()
   const location = useLocation()
+  const [prefill, setPrefill] = useState({ email: '', password: '' })
 
   const queryParams = new URLSearchParams(location.search)
   const modal = queryParams.get('modal')
+
+  const openWithCreds = (email, password) => {
+    setPrefill({ email, password })
+    navigate('/?modal=login')
+  }
 
   // Once auth check is complete, redirect authenticated users to catalogue
   useEffect(() => {
@@ -604,10 +610,20 @@ export default function HomePage() {
 
       {/* ─── Modals ─── */}
       {(modal === 'login' || modal === 'signup') && (
-        <AuthModal mode={modal} onClose={closeModal} onSuccess={onAuthSuccess} />
+        <AuthModal
+          mode={modal}
+          onClose={() => { setPrefill({ email: '', password: '' }); closeModal() }}
+          onSuccess={onAuthSuccess}
+          prefillEmail={prefill.email}
+          prefillPassword={prefill.password}
+        />
       )}
       {modal === 'merchant' && (
-        <MerchantModal onClose={closeModal} />
+        <MerchantModal
+          onClose={closeModal}
+          prefillEmail={prefill.email}
+          prefillPassword={prefill.password}
+        />
       )}
 
       {/* ─── Hero ─── */}
@@ -703,7 +719,7 @@ export default function HomePage() {
             <div className="test-creds__cards">
               <button
                 className="test-creds__card"
-                onClick={() => navigate('/?modal=login')}
+                onClick={() => openWithCreds('customer@test.com', 'Pass@1234')}
               >
                 <div className="test-creds__role">
                   <i className="fa-solid fa-user" /> Customer
@@ -713,7 +729,7 @@ export default function HomePage() {
               </button>
               <button
                 className="test-creds__card test-creds__card--merchant"
-                onClick={() => navigate('/?modal=merchant')}
+                onClick={() => { setPrefill({ email: 'merchant@test.com', password: 'Pass@1234' }); navigate('/?modal=merchant') }}
               >
                 <div className="test-creds__role">
                   <i className="fa-solid fa-store" /> Merchant
