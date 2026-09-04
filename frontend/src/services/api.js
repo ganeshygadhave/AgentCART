@@ -11,7 +11,7 @@ const apiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 15000,
+  timeout: 60000,  // Render free tier takes up to 50s to wake from sleep
 })
 
 // ─── Request Interceptor: Attach Auth Token ─────────────────────────────────

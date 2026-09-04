@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     razorpay_webhook_secret: str = ""
 
     # ─── CORS ─────────────────────────────────────────────────────────────────
-    allowed_origins: str = "http://localhost:5173,http://localhost:3000"
+    allowed_origins: str = "*"
 
     @property
     def cors_origins(self) -> list[str]:
