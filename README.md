@@ -22,10 +22,13 @@
 | Customer | `customer@test.com` | `Pass@1234` |
 | Merchant | `merchant@test.com` | `Pass@1234` |
 
-### Test Payment Card (Razorpay Test Mode)
+### Test Payment (Razorpay Test Mode)
 ```
-Card Number: 4111 1111 1111 1111
-Expiry: Any future date    CVV: Any 3 digits
+Test Card:  4100 2800 0000 1007
+CVV:        123
+Expiry:     12/26
+
+Test UPI:   test@razorpay
 ```
 
 ### Test Coupons

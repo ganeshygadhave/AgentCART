@@ -740,7 +740,7 @@ export default function HomePage() {
             </div>
             <div className="test-creds__hint">
               <i className="fa-solid fa-credit-card" style={{ marginRight: 6 }} />
-              Razorpay test card: <strong>4111 1111 1111 1111</strong> · Any expiry · Any CVV
+              Test card: <strong>4100 2800 0000 1007</strong> · CVV: 123 · Exp: 12/26 &nbsp;|&nbsp; UPI: <strong>test@razorpay</strong>
             </div>
           </div>
         </div>

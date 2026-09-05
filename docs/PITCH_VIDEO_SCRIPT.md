@@ -55,7 +55,7 @@
 **Do:**
 1. Click checkout, show the confirmation gate — order rejected without `confirmed=true`
 2. User confirms, order created with server-authoritative total
-3. Razorpay modal opens (test mode — use card: `4111 1111 1111 1111`)
+3. Razorpay modal opens (test mode — use card: `4100 2800 0000 1007`, CVV: `123`, Exp: `12/26`)
 4. Payment succeeds, order status updates to PAID
 5. Show the payment record in the DB briefly (razorpay_order_id, signature stored)
 

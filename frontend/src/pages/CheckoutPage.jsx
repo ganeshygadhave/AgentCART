@@ -117,7 +117,7 @@ export default function CheckoutPage() {
           <button className="btn btn-signal btn-lg" type="submit" disabled={isLoading || !items.length}>
             {isLoading ? 'Opening payment…' : `Pay ₹${total.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`}
           </button>
-          <p className="truth-sm text-ink-ghost">Razorpay Test Mode. No real money will be charged.</p>
+          <p className="truth-sm text-ink-ghost">Razorpay Test Mode · Card: 4100 2800 0000 1007 · CVV: 123 · Exp: 12/26</p>
         </form>
         <aside className="checkout-summary">
           <h2 className="headline-md">Order summary</h2>

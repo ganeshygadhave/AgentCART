@@ -8,6 +8,10 @@ import axios from 'axios'
 // In local dev, Vite proxy handles /api/* → localhost:8000
 const BASE_URL = ''
 
+// ── Wake up Render free-tier backend immediately on page load ─────────────
+// This fires a lightweight request so the server starts booting while
+// the user reads the homepage (~30s head start).
+fetch('/api/v1/health', { method: 'HEAD' }).catch(() => {})
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
