@@ -309,19 +309,16 @@ async def seed():
         await db.flush()
 
         # ── 3. Create Orders ───────────────────────────────────────────────
-        # Amit: 2 orders (TechZone + HomeLiving)
-        # Sneha: 1 order (FashionHub)
-        # Rohit: 1 order (SportsPro)
-        # Anjali: 2 orders (TechZone + BookWorld)
-        # Vikram: no orders yet
+        # customer@test.com = idx 0, Amit = 1, Sneha = 2, Rohit = 3, Anjali = 4, Vikram = 5
+        # Stores: TechZone=0, FashionHub=1, HomeLiving=2, SportsPro=3, DemoStore=4, BookWorld=5
         orders_plan = [
             # (customer_idx, store_idx, [product_idx_in_store], qty, status, days_ago)
-            (0, 0, [0, 2], 1, OrderStatus.DELIVERED, 45),    # Amit → TechZone (UltraBook + Keyboard)
-            (0, 2, [5, 6], 2, OrderStatus.PAID,      20),    # Amit → HomeLiving (Kettle + LED lights)
-            (1, 1, [0, 7], 1, OrderStatus.SHIPPED,   10),    # Sneha → FashionHub (Saree + Palazzo)
-            (2, 3, [1, 2], 1, OrderStatus.CONFIRMED, 5),     # Rohit → SportsPro (Yoga mat + Bands)
-            (3, 0, [5, 4], 1, OrderStatus.DELIVERED, 30),    # Anjali → TechZone (NVMe + Wireless mouse)
-            (3, 4, [0, 2, 7], 1, OrderStatus.PAID,   15),    # Anjali → BookWorld (Atomic Habits + Rich Dad + Sapiens)
+            (1, 0, [0, 2], 1, OrderStatus.DELIVERED, 45),    # Amit → TechZone (UltraBook + Keyboard)
+            (1, 2, [5, 6], 2, OrderStatus.PAID,      20),    # Amit → HomeLiving (Kettle + LED lights)
+            (2, 1, [0, 7], 1, OrderStatus.SHIPPED,   10),    # Sneha → FashionHub (Saree + Palazzo)
+            (3, 3, [1, 2], 1, OrderStatus.CONFIRMED, 5),     # Rohit → SportsPro (Yoga mat + Bands)
+            (4, 0, [5, 4], 1, OrderStatus.DELIVERED, 30),    # Anjali → TechZone (NVMe + Wireless mouse)
+            (4, 5, [0, 2, 7], 1, OrderStatus.PAID,   15),    # Anjali → BookWorld (Atomic Habits + Rich Dad + Sapiens)
         ]
 
         for (ci, si, prod_idxs, qty, status, days_ago) in orders_plan:
